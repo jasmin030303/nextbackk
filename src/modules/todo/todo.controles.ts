@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import prisma from "../../config/prisma";
 
+
+
+
 const getAllData = async (req: Request, res: Response) => {
   const user = await prisma.user.findMany();
   try {
@@ -38,6 +41,76 @@ const postAllData = async (req: Request, res: Response) => {
     });
   }
 };
+
+
+
+const deleteData = (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { name, age } = req.body;
+    const num = prisma.user.delete({
+      where: { id: Number(id) },
+    });
+
+    res.status(200).json({
+      success: true,
+      data: num,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: `Error in dellData: ${error}`,
+    });
+  }
+};
+
+
+
+const patchData = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { name, age } = req.body;
+    const index = prisma.user.update({
+      where: { id: Number(id) },
+      data: name,
+    });
+
+    res.status(200).json({
+      success: true,
+      index,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: `Server in upDateData: ${error}`,
+    });
+  }
+};
+
+
+const upDateData = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { name, age } = req.body;
+    const index = prisma.user.update({
+      where: { id: Number(id) },
+      data: name,
+    });
+
+    res.status(200).json({
+      success: true,
+      index,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: `Server in upDateData: ${error}`,
+    });
+  }
+};
+
+
+
 
 export default {
   getAllData,
