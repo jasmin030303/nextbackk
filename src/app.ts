@@ -1,9 +1,15 @@
 import "dotenv/config";
 import express from "express";
+import cors from "cors";
 import globalRouter from "./routes";
 
 const buildServer = () => {
   const server = express();
+
+   server.use(cors({
+    origin:  'http://localhost:3000',
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  }));
 
   server.use(express.json());
 
