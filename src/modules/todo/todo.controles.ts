@@ -115,4 +115,7 @@ const upDateData = async (req: Request, res: Response) => {
 export default {
   getAllData,
   postAllData,
+  deleteData,
+  patchData,
+  upDateData
 };
