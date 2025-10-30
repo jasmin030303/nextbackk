@@ -10,8 +10,6 @@ const buildServer = () => {
     cors({
       origin: [
         "http://localhost:3000",
-        "https://nextfront-3.onrender.com",
-        "http://localhost:3001",
       ],
     })
   );
