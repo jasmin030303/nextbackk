@@ -7,7 +7,7 @@ const buildServer = () => {
   const server = express();
 
    server.use(cors({
-    origin:  'http://localhost:3000',
+    origin:  'http://localhost:3001',
   }));
 
   server.use(express.json());
