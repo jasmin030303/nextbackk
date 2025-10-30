@@ -6,9 +6,15 @@ import globalRouter from "./routes";
 const buildServer = () => {
   const server = express();
 
-   server.use(cors({
-    origin:  'http://localhost:3001',
-  }));
+  server.use(
+    cors({
+      origin: [
+        "http://localhost:3000",
+        "https://nextfront-3.onrender.com",
+        "http://localhost:3001",
+      ],
+    })
+  );
 
   server.use(express.json());
 
@@ -18,7 +24,7 @@ const buildServer = () => {
     });
   });
 
-server.use("/api", globalRouter)
+  server.use("/api", globalRouter);
 
   return server;
 };
