@@ -5,8 +5,8 @@ const router = Router();
 
 router.get("/get", controles.getAllData);
 router.post("/post", controles.postAllData);
-router.delete("/delete", controles.deleteData);
-router.patch("/patch", controles.patchData);
-router.put("/put", controles.upDateData);
+router.delete("/delete:id", controles.deleteData);
+router.patch("/patch:id", controles.patchData);
+router.put("/put:id", controles.upDateData);
 
 export default router;
