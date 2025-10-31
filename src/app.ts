@@ -5,17 +5,16 @@ import globalRouter from "./routes";
 
 const buildServer = () => {
   const server = express();
-  server.use(express.json());
 
   server.use(
     cors({
-      
-      origin: ["http://localhost:3001","http://localhost:3000"],
+      origin: ["http://localhost:3001", "http://localhost:3000"],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
       credentials: true,
     })
   );
 
+  server.use(express.json());
   server.get("/", (req, res) => {
     res.status(200).json({
       message: "hello prisma",
