@@ -9,7 +9,7 @@ const buildServer = () => {
 
   server.use(
     cors({
-      origin: ["http://localhost:3000", "https://nextbackk-5.onrender.com"],
+      origin: ["http://localhost:3001"],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
       credentials: true,
     })
